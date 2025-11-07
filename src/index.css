@@ -17,12 +17,36 @@ html {
 body {
     width: 100vw;
     overflow-x: hidden;
-    padding: 0 10%;
+}
+
+@utility flex-around {
+    @apply flex justify-around items-center;
 }
 
 @layer components {
+
     #toggle-mode-btn {
-        @apply text-xl rounded-full cursor-pointer p-2 bg-secondary-dark text-white dark:bg-primary-light dark:text-black
+        @apply text-xl rounded-full cursor-pointer p-2 bg-secondary-dark text-white dark:bg-primary-light dark:text-black absolute right-4 top-4 md:static
+    }
+
+    .card {
+        @apply w-full bg-secondary-light dark:bg-secondary-dark;
+    }
+
+    header {
+        @apply w-full flex-around mb-8;
+
+        #header-text-container {
+            @apply flex flex-col;
+
+            h1 {
+                @apply font-bold text-2xl
+            }
+
+            p {
+                @apply opacity-70 text-sm md:text-base;
+            }
+        }
     }
 }
 

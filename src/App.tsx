@@ -1,8 +1,16 @@
+import CategoriesList from "./components/CategoriesList.tsx";
+import Header from "./components/Header.tsx";
+
 const App = () => {
+
+
     return (
-        <div className='text-4xl text-center mt-12'>
-            App
-        </div>
+        <main className="mt-12">
+
+            <Header/>
+            <CategoriesList/>
+
+        </main>
     );
 };
 
