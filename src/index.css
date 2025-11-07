@@ -1,1 +1,28 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary-light: #f0f4f9;
+    --color-secondary-light: #fff;
+    --color-primary-dark: #000000;
+    --color-secondary-dark: #191c24;
+}
+
+html {
+    width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 0 10%;
+}
+
+@layer components {
+    #toggle-mode-btn {
+        @apply text-xl rounded-full cursor-pointer p-2 bg-secondary-dark text-white dark:bg-primary-light dark:text-black
+    }
+}
+
