@@ -30,11 +30,11 @@ body {
     }
 
     .card {
-        @apply w-full bg-secondary-light dark:bg-secondary-dark;
+        @apply w-full bg-secondary-light dark:bg-secondary-dark p-4 rounded-xl;
     }
 
     header {
-        @apply w-full flex-around mb-8;
+        @apply w-full flex-around mb-2;
 
         #header-text-container {
             @apply flex flex-col;
@@ -46,6 +46,15 @@ body {
             p {
                 @apply opacity-70 text-sm md:text-base;
             }
+        }
+    }
+
+    #categories {
+
+        @apply flex flex-col gap-8;
+
+        h2 {
+            @apply text-xl
         }
     }
 }
