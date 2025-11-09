@@ -1,6 +1,6 @@
 import CategoriesList from "./components/CategoriesList.tsx";
 import Header from "./components/Header.tsx";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import Dashboard from "./components/Dashboard.tsx";
 import he from "he";
 
@@ -64,6 +64,7 @@ const App = () => {
 
                 }
             } catch (error){
+                console.error(error)
                 alert("Please slow down")
             } finally {
                 setLoading(false)
