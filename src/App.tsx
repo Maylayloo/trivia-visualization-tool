@@ -2,8 +2,9 @@ import CategoriesList from "./components/CategoriesList.tsx";
 import Header from "./components/Header.tsx";
 import {useEffect, useRef, useState} from "react";
 import Dashboard from "./components/Dashboard.tsx";
+import he from "he";
 
-interface Question {
+export interface Question {
     type: string,
     difficulty: string,
     category: string,
@@ -58,7 +59,7 @@ const App = () => {
 
                     const categoriesArr: Category[] = Object.entries(categoryCounts).map(
                         ([name, count], index, array) => ({
-                            name,
+                            name: he.decode(name),
                             count,
                             color: getColor(index, array.length)
                         })
@@ -84,14 +85,18 @@ const App = () => {
     if (loading) return;
 
     return (
-        <main className="mt-12 flex flex-col gap-8">
+        <main className="my-12 flex flex-col gap-8">
             <Header/>
             <CategoriesList
                 categories={categories}
                 selectedCategory={selectedCategory}
                 onSelectCategory={setSelectedCategory}
             />
-            <Dashboard categories={categories} selectedCategory={selectedCategory}/>
+            <Dashboard
+                questions={questions    }
+                categories={categories}
+                selectedCategory={selectedCategory}
+            />
         </main>
     );
 };
