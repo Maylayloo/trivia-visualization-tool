@@ -91,6 +91,7 @@ const App = () => {
                 selectedCategory={selectedCategory}
                 onSelectCategory={setSelectedCategory}
             />
+            <Dashboard categories={categories} selectedCategory={selectedCategory}/>
         </main>
     );
 };
