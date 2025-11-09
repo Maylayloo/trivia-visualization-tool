@@ -26,7 +26,7 @@ const DifficultyChart = ({questions, selectedCategory}: Props) => {
     ].filter((difficulty) => difficulty.count > 0);
 
     return (
-        <ResponsiveContainer width="100%" height={300} className='dark:text-transparent'>
+        <ResponsiveContainer width="100%" height={300}>
             <PieChart>
                 <Pie
                     data={data}
