@@ -25,6 +25,10 @@ body {
 
 @layer components {
 
+    h2 {
+        @apply text-xl
+    }
+
     #toggle-mode-btn {
         @apply text-xl rounded-full cursor-pointer p-2 bg-secondary-dark text-white dark:bg-primary-light dark:text-black absolute right-4 top-4 md:static
     }
@@ -53,9 +57,6 @@ body {
 
         @apply flex flex-col gap-8;
 
-        h2 {
-            @apply text-xl
-        }
     }
 }
 
