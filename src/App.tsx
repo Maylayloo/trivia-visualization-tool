@@ -1,6 +1,6 @@
 import CategoriesList from "./components/CategoriesList.tsx";
 import Header from "./components/Header.tsx";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import Dashboard from "./components/Dashboard.tsx";
 import he from "he";
 
@@ -24,7 +24,6 @@ const App = () => {
     const [questions, setQuestions] = useState<Question[]>([])
     const [loading, setLoading] = useState(true)
     const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
-    const fetchedRef = useRef(false);
 
     const getColor = (index: number, total: number) => {
         const hue = (index * 360) / total;
@@ -33,10 +32,6 @@ const App = () => {
     }
 
     useEffect(() => {
-
-        if (fetchedRef.current) return; // TEMPORARY: DEV MODE
-        fetchedRef.current = true; // TEMPORARY:  DEV MODE
-
         const getData = async () => {
             const url = 'https://opentdb.com/api.php?amount=50'
             try {
@@ -68,9 +63,8 @@ const App = () => {
                     setCategories(categoriesArr)
 
                 }
-                // TEMPORARY: just for dev
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error){
+                console.error(error)
                 alert("Please slow down")
             } finally {
                 setLoading(false)
@@ -93,7 +87,7 @@ const App = () => {
                 onSelectCategory={setSelectedCategory}
             />
             <Dashboard
-                questions={questions    }
+                questions={questions}
                 categories={categories}
                 selectedCategory={selectedCategory}
             />
